@@ -1,0 +1,14 @@
+---
+- hosts: vagrant
+  vars:
+    mongodb_security_authorization: "enabled"
+    mongodb_users:
+      - {
+        name: testUser,
+        password: passw0rd,
+        roles: readWrite,
+        database: admin
+      }
+  become: true
+  roles:
+    - ansible-role-mongodb
